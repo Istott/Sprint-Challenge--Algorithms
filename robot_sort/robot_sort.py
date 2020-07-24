@@ -96,25 +96,45 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        for i in range(len(self._list)): #O(n)
-            cur_index = i
-            smallest_value = arr[cur_index]
-            smallest_index = cur_index
-            # TO-DO: find next smallest element
-            # (hint, can do in 3 loc)
-            # Your code here
-            for unsorted_index in range(cur_index, len(arr)):  # O(n)
-                if arr[unsorted_index] < smallest_value:
-                    smallest_value = arr[unsorted_index]
-                    smallest_index = unsorted_index
+        #the CAN methods check to see if there is a left or right item.
+
+        # done. 1. check if len of list is 0. if it is return list.
+        #2. create a while loop that cycles through while light is off. when sorting is done.. 
+        # light will turn on and break the loop.
+        #3. if current item is lower than list[i + 1] then swap item.
+        #     - if item is higher, keep it. 
+        #4. go to next item to compare and repeat process. 
+        #5. once their is a loop over the list with nothing to sort. break the loop. 
+        #6. return sorted list. 
+        # self.set_light_off()
 
 
-            # TO-DO: swap
-            # Your code here
+        while not self.light_is_on:
+            self.set_light_off()
 
-            arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
 
-        return arr
+            if self.compare_item() == -1:
+                self.swap_item()
+                if self.can_move_right() == True:
+                    self.move_right()
+                else:
+                    self.move_left()
+
+            if self.compare_item() == 1:
+                if self.can_move_right() == True:
+                    self.move_right()
+                else:
+                    self.move_left()
+
+            if self.compare_item() == None:
+                if self.can_move_right() == True:
+                    self.move_right()
+                else:
+                    self.move_left()
+            else:
+                self.set_light_on()
+            
+
 
 
 if __name__ == "__main__":
@@ -127,3 +147,12 @@ if __name__ == "__main__":
 
     robot.sort()
     print(robot._list)
+
+
+
+
+
+                # for i in range(len(self._list)):
+            #     if self._list[i] > self._list[i + 1]:
+            #         self.set_light_on
+            #         self.swap_item
