@@ -96,8 +96,25 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        for i in range(len(self._list)): #O(n)
+            cur_index = i
+            smallest_value = arr[cur_index]
+            smallest_index = cur_index
+            # TO-DO: find next smallest element
+            # (hint, can do in 3 loc)
+            # Your code here
+            for unsorted_index in range(cur_index, len(arr)):  # O(n)
+                if arr[unsorted_index] < smallest_value:
+                    smallest_value = arr[unsorted_index]
+                    smallest_index = unsorted_index
+
+
+            # TO-DO: swap
+            # Your code here
+
+            arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
+
+        return arr
 
 
 if __name__ == "__main__":
