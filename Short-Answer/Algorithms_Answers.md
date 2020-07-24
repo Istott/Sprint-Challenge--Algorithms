@@ -12,4 +12,16 @@ c) Linear O(n) runtime. same speed and growth the whole way through.
 
 ## Exercise II
 
+n = stories
+f = floor that eggs start breaking when dropped
+set eggs broken to false
+
+while loop through each story as long as eggs broken is false
+  drop an egg off each story.
+  if egg breaks then assign f to that story. 
+    set eggs broken to True and break loop.
+  otherwise keep looping. 
+
+Linear O(n). loop will continue at same rate until condition met. 
+
 

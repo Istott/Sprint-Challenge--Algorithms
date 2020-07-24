@@ -35,15 +35,5 @@ Suppose that you have an n-story building and plenty of eggs. Suppose also that 
 
 Write out your proposed algorithm in plain English or pseudocode AND give the runtime complexity of your solution.
 
-n = stories
-f = floor that eggs start breaking when dropped
-set eggs broken to false
 
-while loop through each story as long as eggs broken is false
-  drop an egg off each story.
-  if egg breaks then assign f to that story. 
-    set eggs broken to True and break loop.
-  otherwise keep looping. 
-
-Linear O(n). loop will continue at same rate until condition met. 
   
